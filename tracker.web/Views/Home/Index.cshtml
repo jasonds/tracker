@@ -1,0 +1,39 @@
+﻿@using tracker.web.ViewModels;
+@model UserViewModel[]
+
+@{
+    ViewBag.Title = "Tracker";
+}
+
+<h1>App Dev Tracker</h1>
+
+<div class="row margin-top">
+    <div class="col-md-12">
+        @Html.ActionLink("Create New", "Create")
+    </div>
+</div>
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-inline margin-top" }))
+{
+    @Html.ValidationSummary(true)
+
+    for (int i = 0; i < Model.Length; i++)
+    {
+        @Html.HiddenFor(m => m[i].Id)
+
+        <div class="row margin-top">
+            <div class="col-md-2">
+                @Html.DisplayFor(m => m[i].Name)
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m[i].Status, new { placeholder = "Status", @class = "form-control" })
+            </div>
+        </div>
+    }
+    
+    <div class="row margin-top">
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-default pull-right">Submit</button>
+        </div>
+    </div>
+}

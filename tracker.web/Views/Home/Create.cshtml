@@ -1,0 +1,29 @@
+﻿@using tracker.web.ViewModels;
+@model NewUserViewModel
+
+@{
+    ViewBag.Title = "Tracker";
+}
+
+<h1>Create</h1>
+
+@using (Html.BeginForm("Create", "Home", FormMethod.Post, new { @class = "form-inline margin-top" }))
+{
+    @Html.ValidationSummary(true)
+
+    <div class="row">
+        <div class="col-md-3">
+            @Html.TextBoxFor(m => m.FirstName, new { placeholder = "First Name", @class = "form-control" })
+        </div>
+        <div class="col-md-3">
+            @Html.TextBoxFor(m => m.LastName, new { placeholder = "Last Name", @class = "form-control" })
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(m => m.Status, new { placeholder = "Status", @class = "form-control" })
+        </div>
+    </div>
+    
+    <div class="row margin-top">
+        <button type="submit" class="btn btn-default pull-right">Submit</button>
+    </div>
+}
