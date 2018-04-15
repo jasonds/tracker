@@ -43,6 +43,16 @@ namespace tracker.application.Services
             await this._unitOfWork.SaveChangesAsync();
         }
 
+        public async Task DeleteAsync(Guid id)
+        {
+            var domainUser = await this._userRepository.GetByIdAsync(id);
+            if (domainUser != null)
+            {
+                this._userRepository.Remove(domainUser);
+                await this._unitOfWork.SaveChangesAsync();
+            }
+        }
+
         private void AddUser(AppModel.User user)
         {
             if (user == null) throw new ArgumentNullException(nameof(user));

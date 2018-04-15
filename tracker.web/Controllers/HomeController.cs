@@ -48,6 +48,13 @@ namespace tracker.web.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public async Task<ActionResult> Delete(Guid id)
+        {
+            await this._userService.DeleteAsync(id);
+            return RedirectToAction("Index");
+        }
+
         private UserViewModel[] Map(ICollection<DomainModel.User> users)
         {
             users = users ?? new Collection<DomainModel.User>();

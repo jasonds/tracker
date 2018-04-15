@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AppModel = tracker.application.Models;
 using DomainModel = tracker.domain.Models;
@@ -12,5 +13,7 @@ namespace tracker.application.Contracts
         Task AddAsync(AppModel.User user);
 
         Task UpdateAsync(ICollection<AppModel.User> user);
+
+        Task DeleteAsync(Guid id);
     }
 }

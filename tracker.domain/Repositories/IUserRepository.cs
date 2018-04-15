@@ -12,5 +12,7 @@ namespace tracker.domain.Repositories
         Task<User> GetByIdAsync(Guid id);
 
         User Add(User user);
+
+        User Remove(User entity);
     }
 }

@@ -25,8 +25,11 @@
             <div class="col-md-2">
                 @Html.DisplayFor(m => m[i].Name)
             </div>
-            <div class="col-md-10">
+            <div class="col-md-9">
                 @Html.TextBoxFor(m => m[i].Status, new { placeholder = "Status", @class = "form-control" })
+            </div>
+            <div class="col-md-1">
+                @Html.ActionLink("Delete", "Delete", new { id = Model[i].Id })
             </div>
         </div>
     }
