@@ -81,9 +81,16 @@ namespace tracker.application.Services
             foreach (AppModel.User user in users)
             {
                 var domainUser = await this._userRepository.GetByIdAsync(user.Id);
+
+                var updated = domainUser.Status != user.Status || domainUser.IsBench != user.IsBench;
+
                 domainUser.Status = user.Status;
                 domainUser.IsBench = user.IsBench;
-                domainUser.LastUpdatedUtc = DateTime.UtcNow;
+
+                if (updated)
+                {
+                    domainUser.LastUpdatedUtc = DateTime.UtcNow;
+                }
             }
         }
     }
