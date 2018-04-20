@@ -66,7 +66,10 @@ namespace tracker.application.Services
             DomainModel.User domainUser = new DomainModel.User(Guid.NewGuid());
             domainUser.FirstName = user.FirstName;
             domainUser.LastName = user.LastName;
+            domainUser.Location = user.Location;
             domainUser.Status = user.Status;
+            domainUser.IsBench = user.IsBench;
+            domainUser.LastUpdatedUtc = DateTime.UtcNow;
 
             this._userRepository.Add(domainUser);
         }
@@ -79,6 +82,8 @@ namespace tracker.application.Services
             {
                 var domainUser = await this._userRepository.GetByIdAsync(user.Id);
                 domainUser.Status = user.Status;
+                domainUser.IsBench = user.IsBench;
+                domainUser.LastUpdatedUtc = DateTime.UtcNow;
             }
         }
     }

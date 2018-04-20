@@ -21,6 +21,12 @@ namespace tracker.domain.Models
 
         public string LastName { get; set; }
 
+        public string Location { get; set; }
+
         public string Status { get; set; }
+
+        public bool IsBench { get; set; }
+
+        public DateTime LastUpdatedUtc { get; set; }
     }
 }

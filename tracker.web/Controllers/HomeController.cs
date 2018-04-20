@@ -67,7 +67,10 @@ namespace tracker.web.Controllers
             {
                 Id = user.Id,
                 Name = $"{user.FirstName} {user.LastName}",
-                Status = user.Status
+                Location = user.Location,
+                Status = user.Status,
+                IsBench = user.IsBench,
+                LastUpdatedUtc = user.LastUpdatedUtc
             };
         }
     }

@@ -13,6 +13,11 @@ namespace tracker.web.ViewModels
         [Required]
         public string LastName { get; set; }
 
+        [Required]
+        public string Location { get; set; }
+
         public string Status { get; set; }
+
+        public bool IsBench { get; set; }
     }
 }
