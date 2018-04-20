@@ -62,7 +62,7 @@
                 @Model[i].LastUpdatedUtc.ToLocalTime().ToString("yyyyMMdd HH:mm:ss")
             </div>
             <div class="col-md-1">
-                @DateTime.UtcNow.Date.Subtract(Model[i].LastUpdatedUtc).Days Days Old
+                @DateTime.UtcNow.Date.Subtract(Model[i].LastUpdatedUtc.Date).Days Days Old
             </div>
             <div class="col-md-1">
                 @Html.ActionLink("Delete", "Delete", new { id = Model[i].Id })
