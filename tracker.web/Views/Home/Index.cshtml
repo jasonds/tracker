@@ -59,7 +59,7 @@
                  @Html.CheckBoxFor(m => m[i].IsBench)
             </div>
             <div class="col-md-2">
-                @Model[i].LastUpdatedUtc.ToLocalTime().ToLongDateString()
+                @Model[i].LastUpdatedUtc.ToLocalTime().ToString("yyyyMMdd HH:mm:ss")
             </div>
             <div class="col-md-1">
                 @DateTime.UtcNow.Date.Subtract(Model[i].LastUpdatedUtc).Days Days Old
