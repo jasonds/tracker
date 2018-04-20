@@ -17,6 +17,30 @@
 {
     @Html.ValidationSummary(true)
 
+    <div class="row margin-top">
+        <div class="col-md-2">
+            <label>Name</label>
+        </div>
+        <div class="col-md-1">
+            <label>Location</label>
+        </div>
+        <div class="col-md-4">
+            <label>Status</label>
+        </div>
+        <div class="col-md-1">
+            <label>Is Bench</label>
+        </div>
+        <div class="col-md-2">
+            <label>Last Updated</label>
+        </div>
+        <div class="col-md-1">
+            <label>Age</label>
+        </div>
+        <div class="col-md-1">
+            <label>Actions</label>
+        </div>
+    </div>
+
     for (int i = 0; i < Model.Length; i++)
     {
         @Html.HiddenFor(m => m[i].Id)
@@ -28,8 +52,11 @@
             <div class="col-md-1">
                 @Html.DisplayFor(m => m[i].Location)
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4">
                 @Html.TextBoxFor(m => m[i].Status, new { placeholder = "Status", @class = "form-control" })
+            </div>
+             <div class="col-md-1">
+                 @Html.CheckBoxFor(m => m[i].IsBench)
             </div>
             <div class="col-md-2">
                 @Model[i].LastUpdatedUtc.ToLocalTime().ToLongDateString()
